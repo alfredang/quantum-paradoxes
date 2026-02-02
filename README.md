@@ -1,6 +1,8 @@
 # Quantum Paradoxes
 
-A collection of quantum paradox demonstrations designed to run on IBM Quantum hardware. Each paradox includes OpenQASM 2.0 files compatible with IBM Quantum Composer.
+A collection of quantum paradox demonstrations designed to run on IBM Quantum hardware. Each paradox folder contains:
+- `main.py` - Run the experiment on real IBM Quantum hardware
+- `.qasm` file - Upload directly to IBM Quantum Composer
 
 ## Paradoxes
 
@@ -9,6 +11,7 @@ A collection of quantum paradox demonstrations designed to run on IBM Quantum ha
 | [Schrödinger's Cat](schrodinger-cat/) | GHZ "cat state" - macroscopic superposition | 4 |
 | [Wigner's Friend](wigner-friend/) | Observer-dependent reality | 3 |
 | [Extended Wigner's Friend](extended-wigner-friend/) | Frauchiger-Renner paradox with nested observers | 4 |
+| [Wigner's Friend's Friend](wigner-friend-friend/) | Three levels of nested observers | 4 |
 | [Hardy's Paradox](hardys-paradox/) | Nonlocality without inequalities | 2 |
 | [GHZ Paradox](ghz-paradox/) | "All vs nothing" quantum nonlocality | 3 |
 | [CHSH-Bell](chsh-bell/) | Bell inequality violation test | 2 |
@@ -20,13 +23,8 @@ A collection of quantum paradox demonstrations designed to run on IBM Quantum ha
 
 ## Usage
 
-### IBM Quantum Composer
-1. Go to [IBM Quantum Composer](https://quantum.ibm.com/composer)
-2. Create a new circuit
-3. Import the `.qasm` file from any paradox folder
-4. Run on simulator or real quantum hardware
+### Run on IBM Quantum Hardware
 
-### Local Development
 ```bash
 # Install dependencies
 uv sync
@@ -34,13 +32,34 @@ uv sync
 # Set up IBM Quantum credentials
 cp .env.example .env
 # Edit .env with your IBM Quantum API token
+
+# Run any paradox
+python schrodinger-cat/main.py
+python chsh-bell/main.py
+# etc.
 ```
+
+### IBM Quantum Composer
+
+1. Go to [IBM Quantum Composer](https://quantum.ibm.com/composer)
+2. Create a new circuit
+3. Import the `.qasm` file from any paradox folder
+4. Run on simulator or real quantum hardware
 
 ## Requirements
 
 - Python >= 3.13
 - Qiskit >= 1.0.0
 - IBM Quantum account (free tier available)
+
+## Environment Variables
+
+Create a `.env` file with:
+
+```
+IBM_QUANTUM_TOKEN=your_token_here
+IBM_QUANTUM_INSTANCE=ibm-q/open/main
+```
 
 ## License
 
