@@ -1,0 +1,35 @@
+# Environment variables (contains API tokens)
+.env
+.env.local
+.env.*.local
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+wheels/
+*.egg-info
+*.egg
+*.so
+
+# Virtual environments
+.venv
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Qiskit credentials
+qiskit-ibm.json
